@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Python 2.7
 
-# Fredrik Forsberg 171107
+# Fredrik Forsberg 171111
 
 # "##//" = Behöver ändras
 
@@ -219,18 +219,18 @@ class xmlSI(xml.etree.ElementTree.ElementTree):
         Argumenten måste vara "str".
 
 
-        self.addPunch('97', '920407', '2017-11-10 17:23:13') genererar följande:
+        self.addPunch('97', '123456', '2017-11-10 17:23:13') genererar följande:
         
         <competition name="Testlöpning">
           <SIstation Nr="97">
-            <SIcard Nr="920407">
+            <SIcard Nr="123456">
               <Punch Time="2017-11-10 17:23:13" />
             </SIcard>
           </SIstation>
         </competition>
         """
 
-        # Konstruerar ett "dict" för "self._add()" från yttersta posten för tydlighetens skull
+        # Konstruerar ett "dict" för "self._add()". Börjar från yttersta posten (subelement) för tydlighetens skull
         PunchDict = {'tag': 'Punch', 'attribute': {'Time': unicode(Time)}, 'subelement': otherInfo}
 
         SIcardDict = {'tag': 'SIcard', 'attribute': {'Nr': unicode(SIcard)}, 'subelement': PunchDict}
